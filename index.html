@@ -668,11 +668,16 @@
             </div>
             
             <h3 style="margin: 2rem 0 1rem;">Nezávazná poptávka</h3>
-            <form onsubmit="handleSubmit(event)">
-                <input type="text" placeholder="Vaše jméno *" required>
-                <input type="email" placeholder="Váš email *" required>
-                <input type="tel" placeholder="Telefon">
-                <textarea placeholder="Popište váš projekt, typ akce, datum... *" required></textarea>
+            <form action="https://formspree.io/f/xblzpvgj" method="POST">
+                <input type="text" name="name" placeholder="Vaše jméno *" required>
+                <input type="email" name="_replyto" placeholder="Váš email *" required>
+                <input type="tel" name="phone" placeholder="Telefon">
+                <textarea name="message" placeholder="Popište váš projekt, typ akce, datum... *" required></textarea>
+
+                <!-- volitelně: skrytá pole -->
+                <input type="hidden" name="_subject" value="Nová poptávka z CuttingPospa webu">
+                <input type="hidden" name="_language" value="cs">
+
                 <button type="submit">Odeslat poptávku</button>
             </form>
         </div>
