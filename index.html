@@ -259,6 +259,39 @@
             margin-top: 3rem;
         }
 
+        .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.review {
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 10px;
+    padding: 2rem;
+    font-style: italic;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.review strong {
+    display: block;
+    margin-top: 1rem;
+    text-align: right;
+    font-style: normal;
+    font-weight: bold;
+    color: #000;
+}
+
         .portfolio-item {
             background: #f8f8f8;
             border: 2px solid #000;
@@ -705,6 +738,29 @@
             </form>
         </div>
     </section>
+
+    <!-- Reviews Section -->
+<section id="recenze" style="background:#f8f8f8;">
+    <h2>Recenze klientů</h2>
+    <div class="reviews-grid">
+        <div class="review">
+            <p>"Skvělá komunikace, rychlé dodání a výsledek přesně podle představ! Doporučuji každému, kdo chce krásně zpracované video bez stresu."</p>
+            <strong>– Jana & Marek</strong>
+        </div>
+        <div class="review">
+            <p>"Video z běžeckého závodu mě naprosto nadchlo – perfektní střih, hudba i tempo! Cítil jsem se jako ve filmu."</p>
+            <strong>– Tomáš H.</strong>
+        </div>
+        <div class="review">
+            <p>"Profesionální přístup, cit pro detail a přitom naprosto přirozené záběry. Natáčení svatby bylo díky Jakubovi příjemné a pohodové."</p>
+            <strong>– Petra K.</strong>
+        </div>
+        <div class="review">
+            <p>"Rychlá domluva, výborný výsledek a především radost z práce, která je vidět v každém záběru!"</p>
+            <strong>– Martin R.</strong>
+        </div>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>
