@@ -1,394 +1,422 @@
+
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 🔹 SEO a metadata -->
-  <title>CuttingPospa (thepospa89) – Střih videa Brno | GoPro & Dron | Jakub Pospíšil</title>
-  <meta name="description" content="CuttingPospa – střih a natáčení videí z dovolených, oslav a svateb v Brně a okolí. GoPro & dron, autentický styl a osobní přístup." />
-  <meta name="keywords" content="střih videa Brno, GoPro video, svatební video, videograf, střih dovolené, natáčení oslav, CuttingPospa, thepospa89, Jakub Pospíšil" />
-  <meta name="author" content="Jakub Pospíšil" />
+    <!-- 🔹 SEO a metadata -->
+    <title>CuttingPospa (thepospa89) – Střih videa Brno | GoPro & Dron | Jakub Pospíšil</title>
+    <meta name="description" content="CuttingPospa – střih a natáčení videí z dovolených, oslav a svateb v Brně a okolí. GoPro & dron, autentický styl a osobní přístup.">
+    <meta name="keywords" content="střih videa Brno, GoPro video, svatební video, videograf, střih dovolené, natáčení oslav, CuttingPospa, thepospa89, Jakub Pospíšil">
+    <meta name="author" content="Jakub Pospíšil">
 
-  <!-- 🔹 Sociální sítě (Open Graph) -->
-  <meta property="og:title" content="CuttingPospa – Střih videa Brno | GoPro & Dron | Jakub Pospíšil" />
-  <meta property="og:description" content="Profesionální střih a natáčení vašich videí z dovolených, oslav a svateb. CuttingPospa – autentické záběry s GoPro a dronem." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://thepospa89.github.io/cuttingpospa/" />
-  <meta property="og:image" content="https://thepospa89.github.io/cuttingpospa/preview.jpg" />
+    <!-- 🔹 Open Graph (sociální sítě) -->
+    <meta property="og:title" content="CuttingPospa – Střih videa Brno | GoPro & Dron | Jakub Pospíšil">
+    <meta property="og:description" content="Profesionální střih a natáčení vašich videí z dovolených, oslav a svateb. CuttingPospa – autentické záběry s GoPro a dronem.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://thepospa89.github.io/cuttingpospa/">
+    <meta property="og:image" content="https://thepospa89.github.io/cuttingpospa/preview.jpg">
 
-  <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="favicon.png">
 
-  <!-- 🔹 Styl webu -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #111;
-      overflow-x: hidden;
-      position: relative;
-    }
+        /* 🎞️ Základní styl stránky */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #111;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-    /* 🎞️ Film grain efekt */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://www.transparenttextures.com/patterns/noise-pattern-with-subtle-cross-lines.png');
-      opacity: 0.12;
-      z-index: -1;
-      pointer-events: none;
-    }
+        /* 🎬 Film grain efekt – realistický s jemným pohybem */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                url("https://www.transparenttextures.com/patterns/noise.png"),
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.04), transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.03), transparent 70%);
+            background-blend-mode: overlay;
+            opacity: 0.18;
+            z-index: 0;
+            pointer-events: none;
+            animation: grainMove 8s steps(10) infinite;
+        }
 
-    /* === Navigace === */
-    nav {
-      background: #000;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
+        @keyframes grainMove {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5%, -5%); }
+            20% { transform: translate(-10%, 5%); }
+            30% { transform: translate(5%, -10%); }
+            40% { transform: translate(-5%, 15%); }
+            50% { transform: translate(-10%, 5%); }
+            60% { transform: translate(15%, 0); }
+            70% { transform: translate(0, 10%); }
+            80% { transform: translate(5%, 5%); }
+            90% { transform: translate(-10%, 10%); }
+        }
 
-    nav .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+        /* Navigation */
+        nav {
+            background: #000;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      color: #fff;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-decoration: none;
-    }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .logo-img {
-      height: 100px;
-      width: auto;
-      display: block;
-    }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
+        .logo-img {
+            height: 90px;
+            width: auto;
+            display: block;
+        }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    nav a:hover {
-      color: #888;
-    }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
 
-    /* === Hero === */
-    .hero {
-      background: linear-gradient(135deg, #000 0%, #333 100%);
-      color: #fff;
-      text-align: center;
-      padding: 6rem 2rem;
-    }
+        nav a:hover { color: #888; }
 
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 900;
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #000 0%, #333 100%);
+            color: #fff;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
 
-    .hero p {
-      font-size: 1.3rem;
-      margin-bottom: 2rem;
-      color: #ddd;
-    }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; font-weight: 900; }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; color: #ddd; }
 
-    .cta-button {
-      background: #fff;
-      color: #000;
-      padding: 1rem 2.5rem;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      border: 2px solid #fff;
-      transition: all 0.3s;
-      display: inline-block;
-    }
+        .cta-button {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid #fff;
+        }
 
-    .cta-button:hover {
-      background: #000;
-      color: #fff;
-    }
+        .cta-button:hover { background: #000; color: #fff; }
 
-    /* === Sekce === */
-    section {
-      padding: 4rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+        /* Sekce */
+        section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 3rem auto;
+            background: rgba(255,255,255,0.96);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
 
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-      position: relative;
-      padding-bottom: 1rem;
-    }
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
 
-    section h2:after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: #000;
-    }
+        section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #000;
+        }
 
-    /* === Služby === */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
+        /* --- Portfolio --- */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
 
-    .service-card {
-      background: #f8f8f8;
-      padding: 2rem;
-      border-radius: 10px;
-      border: 2px solid #000;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+        .portfolio-item {
+            background: #f8f8f8;
+            border: 2px solid #000;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
 
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
+        .portfolio-item:hover { transform: scale(1.03); }
 
-    .price {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #000;
-    }
+        .portfolio-video iframe {
+            border-radius: 10px 10px 0 0;
+            border: none;
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
 
-    /* === Jak to funguje === */
-    #jak-to-funguje {
-      background: #f8f8f8;
-      border-radius: 10px;
-    }
+        .portfolio-info {
+            padding: 1.5rem;
+        }
 
-    .step-number {
-      background: #000;
-      color: #fff;
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      flex-shrink: 0;
-    }
+        .portfolio-info h4 { margin-bottom: 0.5rem; font-size: 1.2rem; }
 
-    /* === Vybavení === */
-    .equipment-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
+        /* --- About --- */
+        .about-photo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
 
-    .equipment-item {
-      background: #000;
-      color: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-    }
+        .about-photo img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
 
-    /* === O mně === */
-    .about-photo {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+        .about-photo img:hover { transform: scale(1.03); }
 
-    .about-photo img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid #000;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-      transition: transform 0.3s ease;
-    }
+        .about-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
 
-    .about-photo img:hover {
-      transform: scale(1.03);
-    }
+        /* --- Recenze --- */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
 
-    .about-content {
-      max-width: 800px;
-      margin: 2rem auto;
-      text-align: center;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
+        .review {
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 10px;
+            padding: 2rem;
+            font-style: italic;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
 
-    /* === Portfolio === */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
+        .review.visible { opacity: 1; transform: translateY(0); }
 
-    .portfolio-item {
-      background: #f8f8f8;
-      border: 2px solid #000;
-      border-radius: 10px;
-      overflow: hidden;
-      transition: transform 0.3s;
-    }
+        .review:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
 
-    .portfolio-item:hover {
-      transform: scale(1.05);
-    }
+        /* --- Kontakt --- */
+        .contact-content {
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #f8f8f8;
+            padding: 3rem;
+            border-radius: 10px;
+            border: 2px solid #000;
+        }
 
-    .portfolio-info {
-      padding: 1.5rem;
-    }
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #000;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            font-family: inherit;
+        }
 
-    /* === Recenze === */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
+        button {
+            background: #000;
+            color: #fff;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
 
-    .review {
-      background: #fff;
-      border: 2px solid #000;
-      border-radius: 10px;
-      padding: 2rem;
-      font-style: italic;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
+        button:hover { background: #333; }
 
-    .review.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
 
-    /* === Kontakt === */
-    .contact-content {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: #f8f8f8;
-      padding: 3rem;
-      border-radius: 10px;
-      border: 2px solid #000;
-    }
-
-    input,
-    textarea {
-      width: 100%;
-      padding: 1rem;
-      border: 2px solid #000;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-      font-family: inherit;
-    }
-
-    button {
-      background: #000;
-      color: #fff;
-      padding: 1rem;
-      border: none;
-      border-radius: 5px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background: #333;
-    }
-
-    /* === Footer === */
-    footer {
-      background: #000;
-      color: #fff;
-      text-align: center;
-      padding: 2rem;
-      margin-top: 4rem;
-    }
-
-    /* === Mobile menu === */
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: #000;
-        padding: 1rem;
-      }
-
-      nav ul.active {
-        display: flex;
-      }
-
-      .menu-toggle {
-        display: block;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
+        /* Responsive */
+        @media (max-width: 768px) {
+            .logo-img { height: 70px; }
+            .hero h1 { font-size: 2rem; }
+        }
+    </style>
 </head>
+
+<body>
+    <!-- 🔹 Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#home" class="logo">
+                <img src="logo-cp2.png" alt="CuttingPospa logo" class="logo-img">
+                <span>CuttingPospa</span>
+            </a>
+            <ul id="nav-menu">
+                <li><a href="#sluzby">Služby</a></li>
+                <li><a href="#jak-to-funguje">Jak to funguje</a></li>
+                <li><a href="#vybaveni">Vybavení</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#recenze">Recenze</a></li>
+                <li><a href="#o-mne">O mně</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 🔹 Hero -->
+    <section class="hero" id="home">
+        <h1>CuttingPospa</h1>
+        <p>Profesionální video služby | Brno</p>
+        <p>Střih a natáčení vašich nezapomenutelných okamžiků</p>
+        <a href="#kontakt" class="cta-button">Nezávazná poptávka</a>
+    </section>
+
+    <!-- 🔹 Portfolio -->
+    <section id="portfolio">
+        <h2>Předchozí projekty</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <div class="portfolio-video">
+                    <iframe src="https://www.youtube.com/embed/iuHxCWNLNVU" title="Svatební den – Janča a Marek" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Svatební den – Janča a Marek</h4>
+                    <p>Emotivní zachycení jednoho z nejdůležitějších dnů života.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-video">
+                    <iframe src="https://www.youtube.com/embed/8alaTBHCy_I" title="Sportovní aktivity" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Sportovní aktivity</h4>
+                    <p>Energií nabité záběry z různých sportovních akcí – GoPro & dron.</p>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <div class="portfolio-video">
+                    <iframe src="https://www.youtube.com/embed/6s_7VZvM0EU" title="Letní dovolená" allowfullscreen></iframe>
+                </div>
+                <div class="portfolio-info">
+                    <h4>Letní dovolená</h4>
+                    <p>Dovolená na Rhodosu – GoPro HERO12 + DJI dron.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🔹 O mně -->
+    <section id="o-mne">
+        <h2>O mně</h2>
+        <div class="about-photo">
+            <img src="jakub-pospisil.jpg" alt="Jakub Pospíšil – CuttingPospa">
+        </div>
+        <div class="about-content">
+            <p>Jsem Jakub Pospíšil a mou vášní je příroda, hory a běh v horách. 
+            Tuto lásku k outdooru a sportu kombinuji s profesionálním přístupem k natáčení a střihu videa.</p>
+
+            <p style="margin-top:1.5rem;">Pomůžu vám zachytit vaše nejdůležitější okamžiky – od rodinných oslav přes svatby až po sportovní výkony.</p>
+
+            <p style="margin-top:1.5rem;"><strong>Působím v Brně a okolí</strong>, ale rád vycestuji i dál, zvlášť když projekt zahrnuje přírodu a hory.</p>
+        </div>
+    </section>
+
+    <!-- 🔹 Recenze -->
+    <section id="recenze">
+        <h2>Recenze klientů</h2>
+        <div class="reviews-grid">
+            <div class="review"><p>"Skvělá komunikace, rychlé dodání a výsledek přesně podle představ!"</p><strong>– Jana & Marek</strong></div>
+            <div class="review"><p>"Video z běžeckého závodu mě naprosto nadchlo – perfektní střih, hudba i tempo!"</p><strong>– Tomáš H.</strong></div>
+            <div class="review"><p>"Profesionální přístup, cit pro detail a přitom naprosto přirozené záběry."</p><strong>– Petra K.</strong></div>
+            <div class="review"><p>"Rychlá domluva, výborný výsledek a především radost z práce!"</p><strong>– Martin R.</strong></div>
+        </div>
+
+        <div style="text-align:center; margin-top:3rem;">
+            <p style="font-size:1.1rem; margin-bottom:1rem; color:#333;">Spolupracovali jsme spolu? Budu moc rád za vaši zpětnou vazbu.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc8yNcELGDdMpwaaL4Z_7hPmjQxFfSx5pIqD6vUYeeMQEXqzQ/viewform?usp=header" 
+               target="_blank" class="cta-button">Napsat recenzi</a>
+        </div>
+    </section>
+
+    <!-- 🔹 Kontakt -->
+    <section id="kontakt">
+        <h2>Kontakt a rezervace</h2>
+        <div class="contact-content">
+            <p>📧 <strong>Email:</strong> <a href="mailto:pospa.kuba39@gmail.com">pospa.kuba39@gmail.com</a></p>
+            <p>📱 <strong>Telefon:</strong> <a href="tel:+420774124924">+420 774 124 924</a></p>
+            <p>📍 <strong>Brno a okolí</strong></p>
+
+            <form action="https://formspree.io/f/xblzpvgj" method="POST">
+                <input type="text" name="name" placeholder="Vaše jméno *" required>
+                <input type="email" name="_replyto" placeholder="Váš email *" required>
+                <input type="tel" name="phone" placeholder="Telefon">
+                <textarea name="message" placeholder="Popište váš projekt, typ akce, datum..." required></textarea>
+                <button type="submit">Odeslat poptávku</button>
+            </form>
+        </div>
+    </section
