@@ -291,6 +291,17 @@
     font-weight: bold;
     color: #000;
 }
+        /* Fade-in efekt pro recenze */
+.review {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.review.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
         .portfolio-item {
             background: #f8f8f8;
@@ -806,5 +817,21 @@
             });
         });
     </script>
+        <script>
+document.addEventListener("DOMContentLoaded", () => {
+    const reviews = document.querySelectorAll(".review");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    reviews.forEach(review => observer.observe(review));
+});
+</script>
 </body>
 </html>
